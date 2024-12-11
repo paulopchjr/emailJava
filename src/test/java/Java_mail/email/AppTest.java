@@ -1,7 +1,5 @@
 package Java_mail.email;
 
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
 import org.junit.Test;
@@ -63,6 +61,37 @@ public class AppTest {
 		ObjetoEnviaEmail email = new ObjetoEnviaEmail(emailDes, "Paulo", "Novidades na LOJA PCHJR TEC",
 				txtEmail.toString());
 		email.enviarEmail(true);
+	}
+	
+	
+	@Test
+	public void enviarEmailAnexoPDFJAVA() throws Exception {
+		StringBuilder txtEmail = new StringBuilder();
+		txtEmail.append("Olá, <strong>Pequeno Gafanhoto!<br></strong>");
+		txtEmail.append(
+				"Nós da loja <span style=\"color: #f00;\">TESTE</span> OKOAKOSKOAKOKSO <br>");
+		txtEmail.append("<b>Para mais  informações </b><a href=\"https://www.google.com.br/\">Clique aqui</a>");
+		String emailDes = JOptionPane.showInputDialog("Informe o email");
+		ObjetoEnviaEmail email = new ObjetoEnviaEmail(emailDes, "TESTE", "teste",
+				txtEmail.toString());
+		email.enviarEmailAnexoPDf(true);
+
+	}
+	
+	
+	
+	@Test
+	public void enviaListaAnexopdf() throws Exception {
+	 StringBuilder txtEmail = new StringBuilder();
+	 txtEmail.append("<h1><span style =\"color:Darkred;\"><strong>BELLA QUANTA SAUDADE</strong><span></h1>");
+	 String emailDes = JOptionPane.showInputDialog("Informe o email desejado para mandar ");
+	 
+	 ObjetoEnviaEmail email = new ObjetoEnviaEmail(emailDes, "Paulo", "Bella Rottweiller, meu gule gule2", txtEmail.toString());
+	 
+	 email.enviarListaEmailAnexoPDf(true);
+	
+		
+		
 	}
 
 }
